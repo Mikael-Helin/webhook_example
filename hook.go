@@ -39,7 +39,7 @@ func handleHook(w http.ResponseWriter, r *http.Request) {
 
 	if expectedHash == hookRequest.Hash && time.Now().Unix()-hookRequest.Timestamp < 60 {
 		// Execute the hook
-		exec.Command("/home/hook.sh").Run()
+		exec.Command("./hook.sh").Run()
 		w.WriteHeader(http.StatusOK)
 	} else {
 		w.WriteHeader(http.StatusForbidden)
